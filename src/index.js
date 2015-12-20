@@ -9,7 +9,7 @@ startServer(store);
 
 
 store.dispatch({
-  type: 'SET_ENTRIES',
+  type: actionTypes.get("SET_ENTRIES"),
   entries: [
     "Shallow Grave",
     "Trainspotting",
@@ -25,6 +25,6 @@ store.dispatch({
   ]
 });
 
-store.dispatch({type: 'NEXT'});
+console.log(store.getState().toJS());
 
 export { store };

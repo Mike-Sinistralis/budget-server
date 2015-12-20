@@ -19,7 +19,6 @@ function getWinners(vote) {
 
 const setEntries = (state, entries) => state.set('entries', entries);
 
-
 function next(state) 
 {
 	const entries = state.get('entries').concat(getWinners(state.get('vote')));
