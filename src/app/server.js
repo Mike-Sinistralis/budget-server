@@ -28,9 +28,25 @@ function startServer(store)
 
 	  next();  
 	});
+	
+	router.get('/addTransaction', function(req, res, next) {
+	  //res.json({ store: store.getState().toJS() });
+	});
 
-	router.get('/store', function(req, res, next) {
-	  res.json({ store: store.getState().toJS() });
+	router.get('/removeTransaction', function(req, res, next) {
+		
+	});
+
+	router.get('/addRoutine', function(req, res, next) {
+		
+	});
+
+	router.get('/removeRoutine', function(req, res, next) {
+		
+	});
+
+	router.get('/getHistory', function(req, res, next) {
+		//interval (Today, Week, Month, etc)
 	});
 
 	app.use('/api', router);
