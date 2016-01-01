@@ -8,7 +8,7 @@ router.get('/players/:id', function(req, res, next) {
 });
 **/
 
-function startServer(store)
+function startServer()
 {
 	const app = express();
 	const port = 3010;
