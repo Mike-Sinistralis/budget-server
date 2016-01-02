@@ -1,5 +1,5 @@
 "use strict";
 
-import { startServer } from './app/server';
+import { startServer } from './server';
 
 startServer();

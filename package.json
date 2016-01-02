@@ -18,18 +18,23 @@
     "babel-core": "^6.3.17",
     "babel-plugin-transform-strict-mode": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-3": "^6.3.13",
     "expect": "^1.13.4",
     "isparta": "^4.0.0",
     "mocha": "^2.3.4",
     "nodemon": "^1.8.1"
   },
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.0",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "rethinkdb": "^2.2.1"
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "stage-3"
     ],
     "plugins": [
       "transform-strict-mode"
