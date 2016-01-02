@@ -6,13 +6,6 @@ import cors from 'cors';
 import { notFoundHandler, errorHandler } from './middleware/middleware'
 import firstApiVersion from './api/v1';
 
-/**
-router.get('/players/:id', function(req, res, next) {
-  var player = players.getPlayerById(req.params.id)
-  res.json(player);
-});
-**/
-
 function startServer()
 {
 	const app = express();
