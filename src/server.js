@@ -14,7 +14,7 @@ function startServer()
 	app.use(cors());
 	app.use(urlencoded({ extended: true }));
 	app.use(json());
-	app.use(cookieParser())
+	app.use(cookieParser());
 
 	app.use('/v1', firstApiVersion());
 	app.use(notFoundHandler);
@@ -25,4 +25,4 @@ function startServer()
 }
 
 
-export { startServer }
+export { startServer };
