@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { NotFoundError } from '../../../../utils/errors';
+import { NotFoundError, BadRequestError } from '../../../../utils/errors';
 
 function routineApi() 
 {
