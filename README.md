@@ -1,0 +1,11 @@
+## To Do
+- [ ] MongoDB --> On compose.io
+- [ ] Wire data model into MongoDB
+- [ ] Authentication / Authorization + Endpoints
+  - [ ] Google
+  - [ ] Facebook
+  - [ ] Custom
+- [ ] Account Management
+  - [ ] Store profile info, access tokens, etc.
+  - [ ] Token refresh
+  - [ ] Check for session via JWT --> does cookie exist on REST hit
