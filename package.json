@@ -6,7 +6,7 @@
   "scripts": {
     "debug": "node ./node_modules/nodemon/bin/nodemon.js src/index.js --exec babel-node --presets es2015",
     "build": "node ./node_modules/babel-cli/bin/babel.js --presets es2015 src -d dist",
-    "start": "node dist/index.js",
+    "start": "node ./node_modules/babel-cli/bin/babel.js --presets es2015 src -d dist && node dist/index.js",
     "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
     "test:watch": "npm run test -- --watch"
   },
