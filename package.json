@@ -6,7 +6,7 @@
   "scripts": {
     "debug": "node ./node_modules/nodemon/bin/nodemon.js src/index.js --exec babel-node --presets es2015",
     "build": "node ./node_modules/babel-cli/bin/babel.js --presets es2015 src -d dist",
-    "start": "node dist/index.js",
+    "start": "node src/index.js",
     "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
     "test:watch": "npm run test -- --watch"
   },
@@ -25,12 +25,11 @@
     "nodemon": "^1.8.1"
   },
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "cookie-parser": "^1.4.0",
-    "cors": "^2.7.1",
-    "express": "^4.13.3",
-    "orchestrate": "0.7.0",
-    "rethinkdb": "^2.2.1"
+    "body-parser": "1.15.0",
+    "cookie-parser": "1.4.1",
+    "cors": "2.7.1",
+    "express": "4.13.4",
+    "orchestrate": "0.7.0"
   },
   "babel": {
     "presets": [
