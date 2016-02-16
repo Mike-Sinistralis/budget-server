@@ -3,7 +3,7 @@ import {urlencoded, json } from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
-import { notFoundHandler, errorHandler } from './middleware/middleware'
+import { notFoundHandler, errorHandler } from './middleware/middleware';
 import firstApiVersion from './api/v1/index';
 
 function startServer()
