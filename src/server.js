@@ -1,5 +1,5 @@
 import express from 'express';
-import {urlencoded, json } from 'body-parser';
+import { urlencoded, json } from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -8,20 +8,20 @@ import firstApiVersion from './api/v1/index';
 
 function startServer()
 {
-	const app = express();
-	const port = 3010;
+	  const app = express();
+	  const port = 3010;
 
-	app.use(cors());
-	app.use(urlencoded({ extended: true }));
-	app.use(json());
-	app.use(cookieParser());
+	  app.use(cors());
+	  app.use(urlencoded({ extended: true }));
+	  app.use(json());
+	  app.use(cookieParser());
 
-	app.use('/v1', firstApiVersion());
-	app.use(notFoundHandler);
-	app.use(errorHandler);
+	  app.use('/v1', firstApiVersion());
+	  app.use(notFoundHandler);
+	  app.use(errorHandler);
 
-	app.listen(port);
-	console.log('Server listening on port ' + port);
+	  app.listen(port);
+	  console.log('Server listening on port ' + port);
 }
 
 

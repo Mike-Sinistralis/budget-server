@@ -2,97 +2,93 @@ import express from 'express';
 
 import { NotFoundError, BadRequestError } from '../../../../utils/errors';
 
-function transactionApi() 
+function transactionApi()
 {
-    var router = express.Router();
+  var router = express.Router();
 
-    router.post('/',
+  router.post('/',
         createTransaction,
         returnTransaction
     );
 
-    router.get('/:id',
+  router.get('/:id',
         findTransactionById,
         returnTransaction
     );
 
-    router.put('/:id',
+  router.put('/:id',
         findTransactionById,
         updateTransaction,
         returnTransaction
     );
 
-    router.delete('/:id',
+  router.delete('/:id',
         findTransactionById,
         deleteTransaction
     );
 
-    function createTransaction(req, res, next) 
+  function createTransaction(req, res, next)
     {
-        try
-        {
-            req.transaction = transaction;
-            next();
+      try {
+          req.transaction = transaction;
+          next();
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function findTransactionById(req, res, next) 
+  function findTransactionById(req, res, next)
     {
-        try
-        {
-            if(!req.params.id)
+      try {
+          if (!req.params.id)
             {
-                return next(new BadRequestError('No Transaction Id specified.'));
+              return next(new BadRequestError('No Transaction Id specified.'));
             }
-            req.transaction = {name: "findTransactionById"};
-            if(!req.transaction)
+          req.transaction = { name: "findTransactionById" };
+          if (!req.transaction)
             {
-                return next(new NotFoundError('Transaction not found'));
+              return next(new NotFoundError('Transaction not found'));
             }
-            next();
+          next();
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function updateTransaction(req, res, next) 
+  function updateTransaction(req, res, next)
     {
-        try
-        {
-            req.transaction = {name: "updateTransaction"};
-            next();
+      try {
+          req.transaction = { name: "updateTransaction" };
+          next();
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function deleteTransaction(req, res, next) 
+  function deleteTransaction(req, res, next)
     {
-        try
-        {
-            req.transaction = {name: "deleteTransaction"};
-            res.sendStatus(204);
+      try {
+          req.transaction = { name: "deleteTransaction" };
+          res.sendStatus(204);
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function returnTransaction(req, res) 
+  function returnTransaction(req, res)
     {
-        res.json(req.transaction);
+      res.json(req.transaction);
     }
 
-    return router;  
+  return router;
 }
 
 export default transactionApi;

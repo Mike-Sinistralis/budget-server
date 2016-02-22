@@ -2,97 +2,93 @@ import express from 'express';
 
 import { NotFoundError, BadRequestError } from '../../../../utils/errors';
 
-function routineApi() 
+function routineApi()
 {
-    var router = express.Router();
+  var router = express.Router();
 
-    router.post('/',
+  router.post('/',
         createRoutine,
         returnRoutine
     );
 
-    router.get('/:id',
+  router.get('/:id',
         findRoutineById,
         returnRoutine
     );
 
-    router.put('/:id',
+  router.put('/:id',
         findRoutineById,
         updateRoutine,
         returnRoutine
     );
 
-    router.delete('/:id',
+  router.delete('/:id',
         findRoutineById,
         deleteRoutine
     );
 
-    function createRoutine(req, res, next) 
+  function createRoutine(req, res, next)
     {
-        try
-        {
-            req.routine = routine;
-            next();
+      try {
+          req.routine = routine;
+          next();
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function findRoutineById(req, res, next) 
+  function findRoutineById(req, res, next)
     {
-        try
-        {
-            if(!req.params.id)
+      try {
+          if (!req.params.id)
             {
-                return next(new BadRequestError('No Routine Id specified.'));
+              return next(new BadRequestError('No Routine Id specified.'));
             }
-            req.routine = {name: "findRoutineById"};
-            if(!req.routine)
+          req.routine = { name: "findRoutineById" };
+          if (!req.routine)
             {
-                return next(new NotFoundError('Routine not found'));
+              return next(new NotFoundError('Routine not found'));
             }
-            next();
+          next();
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function updateRoutine(req, res, next) 
+  function updateRoutine(req, res, next)
     {
-        try
-        {
-            req.routine = {name: "updateRoutine"};
-            next();
+      try {
+          req.routine = { name: "updateRoutine" };
+          next();
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function deleteRoutine(req, res, next) 
+  function deleteRoutine(req, res, next)
     {
-        try
-        {
-            req.routine = {name: "deleteRoutine"};
-            res.sendStatus(204);
+      try {
+          req.routine = { name: "deleteRoutine" };
+          res.sendStatus(204);
         }
-        catch(err)
+        catch (err)
         {
-            next(err);
+          next(err);
         }
     }
 
-    function returnRoutine(req, res) 
+  function returnRoutine(req, res)
     {
-        res.json(req.routine);
+      res.json(req.routine);
     }
 
-    return router;  
+  return router;
 }
 
 export default routineApi;

@@ -4,32 +4,36 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "debug": "node ./node_modules/nodemon/bin/nodemon.js src/index.js --exec babel-node --presets es2015",
-    "build": "node ./node_modules/babel-cli/bin/babel.js --presets es2015 src -d dist",
+    "debug": "nodemon src/index.js --exec babel-node --presets es2015",
+    "build": "babel --presets es2015 src -d dist",
     "start": "node dist/index.js",
     "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js  --recursive",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint --ext .js --ext .js ./",
+    "lint:fix": "eslint --ext .js --ext .js --fix ./"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.3.17",
-    "babel-core": "^6.3.17",
-    "babel-plugin-transform-strict-mode": "^6.3.13",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-stage-3": "^6.3.13",
-    "expect": "^1.13.4",
-    "isparta": "^4.0.0",
-    "mocha": "^2.3.4",
-    "nodemon": "^1.8.1"
+    "babel-cli": "^6.5.0",
+    "babel-core": "^6.5.0",
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-transform-strict-mode": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-3": "^6.5.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.1",
+    "eslint-plugin-babel": "^3.1.0",
+    "expect": "^1.14.0",
+    "nodemon": "^1.9.0"
   },
   "dependencies": {
-    "body-parser": "1.15.0",
-    "cookie-parser": "1.4.1",
-    "cors": "2.7.1",
-    "express": "4.13.4",
-    "orchestrate": "0.7.0"
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "orchestrate": "^0.7.0"
   },
   "babel": {
     "presets": [
