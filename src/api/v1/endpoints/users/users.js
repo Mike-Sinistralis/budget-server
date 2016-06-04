@@ -2,35 +2,35 @@ import express from 'express';
 
 import { NotFoundError, BadRequestError } from '../../../../utils/errors';
 
-function routineApi()
+function usersApi()
 {
   var router = express.Router();
 
   router.post('/',
-        createRoutine,
-        returnRoutine
+        createUsers,
+        returnUsers
     );
 
   router.get('/:id',
-        findRoutineById,
-        returnRoutine
+        findUsersById,
+        returnUsers
     );
 
   router.put('/:id',
-        findRoutineById,
-        updateRoutine,
-        returnRoutine
+        findUsersById,
+        updateUsers,
+        returnUsers
     );
 
   router.delete('/:id',
-        findRoutineById,
-        deleteRoutine
+        findUsersById,
+        deleteUsers
     );
 
-  function createRoutine(req, res, next)
+  function createUsers(req, res, next)
     {
       try {
-          req.routine = routine;
+          req.users = users;
           next();
         }
         catch (err)
@@ -39,17 +39,17 @@ function routineApi()
         }
     }
 
-  function findRoutineById(req, res, next)
+  function findUsersById(req, res, next)
     {
       try {
           if (!req.params.id)
             {
-              return next(new BadRequestError('No Routine Id specified.'));
+              return next(new BadRequestError('No Users Id specified.'));
             }
-          req.routine = { name: "findRoutineById" };
-          if (!req.routine)
+          req.users = { name: "findUsersById" };
+          if (!req.users)
             {
-              return next(new NotFoundError('Routine not found'));
+              return next(new NotFoundError('Users not found'));
             }
           next();
         }
@@ -59,10 +59,10 @@ function routineApi()
         }
     }
 
-  function updateRoutine(req, res, next)
+  function updateUsers(req, res, next)
     {
       try {
-          req.routine = { name: "updateRoutine" };
+          req.users = { name: "updateUsers" };
           next();
         }
         catch (err)
@@ -71,10 +71,10 @@ function routineApi()
         }
     }
 
-  function deleteRoutine(req, res, next)
+  function deleteUsers(req, res, next)
     {
       try {
-          req.routine = { name: "deleteRoutine" };
+          req.users = { name: "deleteUsers" };
           res.sendStatus(204);
         }
         catch (err)
@@ -83,12 +83,12 @@ function routineApi()
         }
     }
 
-  function returnRoutine(req, res)
+  function returnUsers(req, res)
     {
-      res.json(req.routine);
+      res.json(req.users);
     }
 
   return router;
 }
 
-export default routineApi;
+export default usersApi;

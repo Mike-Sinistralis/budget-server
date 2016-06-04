@@ -1,14 +1,14 @@
 import express from 'express';
 
-import routine from './endpoints/routine/routine';
-import transaction from './endpoints/transaction/transaction';
+import users from './endpoints/users/users';
+import transactions from './endpoints/transactions/transactions';
 
 export default function ()
 {
   var router = express.Router();
 
-  router.use('/routine', routine());
-  router.use('/transaction', transaction());
+  router.use('/users', users());
+  router.use('/transactions', transaction());
 
   return router;
 }
