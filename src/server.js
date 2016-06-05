@@ -9,7 +9,7 @@ import firstApiVersion from './api/v1/index';
 function startServer()
 {
 	  const app = express();
-	  const port = 3010;
+	  const port = 3110;
 
 	  app.use(cors());
 	  app.use(urlencoded({ extended: true }));

@@ -1,12 +1,25 @@
 {
   "extends": [
-    "eslint-config-airbnb/base"
+    "airbnb"
   ],
-  "env": {
-    "node": true
+  "rules": {
+    "max-len": [
+      2, {
+        "code": 150,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+      }
+    ],
+    "global-require": [
+      0
+    ],
+    "no-underscore-dangle": [
+      0
+    ],
+    "no-restricted-syntax": [
+      0
+    ]
   },
-  "parser": "babel-eslint",
-  "plugins": [
-    "babel"
-  ]
 }

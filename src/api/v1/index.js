@@ -8,7 +8,7 @@ export default function ()
   var router = express.Router();
 
   router.use('/users', users());
-  router.use('/transactions', transaction());
+  router.use('/transactions', transactions());
 
   return router;
 }
