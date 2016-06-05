@@ -23,23 +23,21 @@ const ErrorHandlers = {
 
 };
 
-function defaultHandler(err)
-{
-  let status = err.status || 500;
+function defaultHandler(err) {
+  const status = err.status || 500;
   let errors = Array.isArray(err) ? err : [err];
 
   if (status === 500) {
-      console.error(err.stack);
-      errors = [{ message: 'Internal Server Error' }];
-    }
+    console.error(err.stack);
+    errors = [{ message: 'Internal Server Error' }];
+  }
 
   return { status, errors };
 }
 
-function baseErrorHandler(err, req, res, next)
-{
-  let errorHandler = ErrorHandlers[err.name] || defaultHandler;
-  let { status, errors } = errorHandler(err);
+function baseErrorHandler(err, req, res) {
+  const errorHandler = ErrorHandlers[err.name] || defaultHandler;
+  const { status, errors } = errorHandler(err);
   res.status(status).json({ errors });
 }
 

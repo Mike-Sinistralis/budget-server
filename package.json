@@ -10,8 +10,8 @@
     "start": "npm run build && node dist/index.js",
     "test": "mocha --compilers js:babel-register",
     "test:watch": "npm run test -- --watch",
-    "lint": "eslint --ext .js --ext .js ./",
-    "lint:fix": "eslint --ext .js --ext .js --fix ./"
+    "lint": "eslint --ext .js --ext .js src",
+    "lint:fix": "eslint --ext .js --ext .js --fix src"
   },
   "keywords": [],
   "author": "",
