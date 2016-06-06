@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport';
 import { urlencoded, json } from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -14,6 +15,7 @@ function startServer() {
   app.use(urlencoded({ extended: true }));
   app.use(json());
   app.use(cookieParser());
+  app.use(passport.initialize());
 
   app.use('/v1', firstApiVersion());
   app.use(notFoundHandler);

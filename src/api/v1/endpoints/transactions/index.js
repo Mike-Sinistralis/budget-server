@@ -53,7 +53,7 @@ function returnTransaction(req, res) {
 }
 
 function transactionApi() {
-  const router = express.Router();
+  const router = express.Router({ mergeParams: true });
 
   router.post('/',
     createTransaction,

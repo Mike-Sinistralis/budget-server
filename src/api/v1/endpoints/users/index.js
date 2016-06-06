@@ -53,7 +53,7 @@ function returnUsers(req, res) {
 }
 
 function usersApi() {
-  const router = express.Router();
+  const router = express.Router({ mergeParams: true });
 
   router.post('/',
     createUsers,
