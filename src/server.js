@@ -17,6 +17,7 @@ function startServer() {
   app.use(cookieParser());
   app.use(passport.initialize());
 
+  app.options('*', cors());
   app.use('/v1', firstApiVersion());
   app.use(notFoundHandler);
   app.use(errorHandler);

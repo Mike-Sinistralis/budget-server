@@ -1,7 +1,8 @@
+/*
 import express from 'express';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import users from '../users/usersDB';
+import user from '../user/userDB';
 
 passport.use(new LocalStrategy(
   (username, password, done) => {
@@ -14,12 +15,7 @@ passport.use(new LocalStrategy(
 );
 
 function onAuth(req, res) {
-  res.sendStatus(200);
   res.json(req.user);
-}
-
-function test(req, res) {
-  console.log('hello');
   res.sendStatus(200);
 }
 
@@ -27,7 +23,7 @@ function authApi() {
   const router = express.Router();
 
   router.post('/',
-    passport.authenticate('local'),
+    passport.authenticate('local', { session: false }),
     onAuth
   );
 
@@ -35,3 +31,4 @@ function authApi() {
 }
 
 export default authApi;
+*/
