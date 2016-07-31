@@ -4,7 +4,7 @@ import { urlencoded, json } from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
-import { notFoundHandler, errorHandler } from './middleware/middleware';
+import { notFoundHandler, baseErrorHandler } from './middleware/middleware';
 import firstApiVersion from './api/v1/index';
 
 function startServer() {
@@ -20,7 +20,7 @@ function startServer() {
   app.options('*', cors());
   app.use('/v1', firstApiVersion());
   app.use(notFoundHandler);
-  app.use(errorHandler);
+  app.use(baseErrorHandler);
 
   app.listen(port);
   console.log(`Server listening on port ${port}`);

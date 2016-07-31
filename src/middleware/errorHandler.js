@@ -37,7 +37,7 @@ function defaultHandler(err) {
 
 function baseErrorHandler(err, req, res) {
   const errorHandler = ErrorHandlers[err.name] || defaultHandler;
-  const { status, errors } = errorHandler(err);
+  status, errors = errorHandler(err);
   res.status(status).json({ errors });
 }
 

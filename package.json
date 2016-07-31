@@ -23,6 +23,7 @@
     "babel-plugin-transform-strict-mode": "^6.5.2",
     "babel-preset-stage-1": "^6.5.0S",
     "babel-register": "^6.5.2",
+    "dotenv": "2.0.0",
     "eslint": "^2.10.2",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
@@ -32,15 +33,17 @@
     "expect": "^1.14.0",
     "mocha": "^2.4.5",
     "node-inspector": "^0.12.6",
-    "nodemon": "^1.9.0"
+    "nodemon": "^1.9.0",
+    "v8-debug": "0.7.7"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "cors": "^2.7.1",
+    "dotenv": "2.0.0",
     "express": "^4.13.4",
     "lodash": "^4.13.1",
-    "orchestrate": "^0.7.0",
+    "orchestrate": "0.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   }

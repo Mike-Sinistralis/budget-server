@@ -1,13 +1,13 @@
 import { add, remove, get, update } from './userDB';
 
-function createUser({ username, password }) {
+function createUser(username, password) {
   return add({
     username,
-    password
+    password,
   });
 }
 
-function updateUser(user, { username, password }) {
+function updateUser(user, username, password) {
   let newData = {};
 
   if (username) {
