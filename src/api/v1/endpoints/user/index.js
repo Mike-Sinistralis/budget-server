@@ -1,51 +1,29 @@
 import express from 'express';
-import { createUser, updateUser, getUser, deleteUser } from './userModel';
+import orchestrate from 'orchestrate';
 
 import { NotFoundError, BadRequestError } from '../../../../utils/errors';
 
+const db = orchestrate('053be91e-740d-480b-893e-81d8f4af7aeb');
+
 function create(req, res, next) {
-  try {
-    req.user = createUser(req.body);
-    next();
-  } catch (err) {
-    next(err);
-  }
+
 }
 
 function findUserById(req, res, next) {
-  try {
-    if (!req.params.id) {
-      return next(new BadRequestError('No User Id specified.'));
-    }
-
-    req.user = getUser(req.params.id);
-
-    if (!req.user) {
-      return next(new NotFoundError('User not found'));
-    }
-
-    return next();
-  } catch (err) {
-    return next(err);
-  }
+  db.get('users', 'barric')
+    .then( (user) => {
+      req.user = user.body;
+      next();
+    })
+    .fail( (err) => next(err));
 }
 
 function update(req, res, next) {
-  try {
-    req.user = updateUser(req.user, req.body);
-    next();
-  } catch (err) {
-    next(err);
-  }
+
 }
 
 function remove(req, res, next) {
-  try {
-    deleteUser(req.user);
-    res.sendStatus(204);
-  } catch (err) {
-    next(err);
-  }
+
 }
 
 function returnUser(req, res) {

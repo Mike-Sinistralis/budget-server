@@ -1,34 +1,38 @@
-/*
-import express from 'express';
 import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';
-import user from '../user/userDB';
+import express from 'express';
 
-passport.use(new LocalStrategy(
-  (username, password, done) => {
-    const user = users.filter((user) => {
-      return user.email === username;
-    });
+function authFacebook(req, res, next) {
+  const test = Object.create(res);
+  test.end = () => {
+    req.url = test.getHeader('location');
+    next();
+  };
+  passport.authenticate('facebook', { scope: ['email'] })(req, test, next);
+}
 
-    return done(null, user[0]);
-  })
-);
+function onFacebookAuth(req, res, next) {
+  passport.authenticate('facebook', (user) => {
+    debugger;
+  })(req, res, next);
+}
 
-function onAuth(req, res) {
-  res.json(req.user);
-  res.sendStatus(200);
+function returnLocation(req, res) {
+  res.json(req.url);
 }
 
 function authApi() {
-  const router = express.Router();
+  const router = express.Router({ mergeParams: true });
 
-  router.post('/',
-    passport.authenticate('local', { session: false }),
-    onAuth
+  router.get('/facebook',
+    authFacebook,
+    returnLocation
+  );
+
+  router.get('/facebook/callback',
+    onFacebookAuth
   );
 
   return router;
 }
 
 export default authApi;
-*/

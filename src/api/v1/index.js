@@ -7,9 +7,9 @@ import auth from './endpoints/auth';
 export default function () {
   const router = express.Router();
 
+  router.use('/auth', auth());
   router.use('/user', user());
   router.use('/transactions', transactions());
-  // router.use('/auth', auth());
 
   return router;
 }
