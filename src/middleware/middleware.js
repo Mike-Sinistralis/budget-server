@@ -1,4 +1,4 @@
-import errorHandler from './errorHandler';
+import baseErrorHandler from './errorHandler';
 import notFoundHandler from './notFoundHandler';
 
-export { errorHandler, notFoundHandler };
+export { baseErrorHandler, notFoundHandler };

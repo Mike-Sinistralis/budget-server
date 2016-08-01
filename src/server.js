@@ -5,8 +5,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import session from 'express-session';
 
-import { notFoundHandler, errorHandler } from './middleware/middleware';
 import loadPassportStrategies from './config/passport';
+import { notFoundHandler, baseErrorHandler } from './middleware/middleware';
 import firstApiVersion from './api/v1/index';
 
 function startServer() {
@@ -30,7 +30,7 @@ function startServer() {
   app.options('*', cors());
   app.use('/v1', firstApiVersion());
   app.use(notFoundHandler);
-  app.use(errorHandler);
+  app.use(baseErrorHandler);
 
   app.set('port', port);
   app.listen(port);
